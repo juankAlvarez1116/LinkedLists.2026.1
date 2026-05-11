@@ -48,7 +48,7 @@ public class DoubleLinkedList<T> : ILinkedList<T> where T : IComparable<T>
             current = current.Next;
         }
 
-        // Insertar al final
+
         if (current == null)
         {
             _tail!.Next = newNode;
@@ -56,7 +56,7 @@ public class DoubleLinkedList<T> : ILinkedList<T> where T : IComparable<T>
             _tail = newNode;
         }
 
-        // Insertar al inicio
+
         else if (current == _head)
         {
             newNode.Next = _head;
@@ -64,7 +64,7 @@ public class DoubleLinkedList<T> : ILinkedList<T> where T : IComparable<T>
             _head = newNode;
         }
 
-        // Insertar en medio
+
         else
         {
             newNode.Next = current;
@@ -83,28 +83,28 @@ public class DoubleLinkedList<T> : ILinkedList<T> where T : IComparable<T>
         {
             if (current.Data!.Equals(data))
             {
-                // único nodo
+            
                 if (_head == _tail)
                 {
                     _head = null;
                     _tail = null;
                 }
 
-                // eliminar cabeza
+               
                 else if (current == _head)
                 {
                     _head = _head!.Next;
                     _head!.Previous = null;
                 }
 
-                // eliminar cola
+               
                 else if (current == _tail)
                 {
                     _tail = _tail!.Previous;
                     _tail!.Next = null;
                 }
 
-                // eliminar en medio
+
                 else
                 {
                     current.Previous!.Next = current.Next;
@@ -187,7 +187,7 @@ public class DoubleLinkedList<T> : ILinkedList<T> where T : IComparable<T>
             }
         }
 
-        return $"Mode(s): {result}";
+        return $"Mode: {result}";
     }
 
     public string GetGraph()
